@@ -15,8 +15,14 @@ El servidor corre en http://localhost:3000
 |--------|-------------------|---------------|
 | GET    | /productos        | Implementado  |
 | GET    | /productos/:id    | Implementado  |
-| POST   | /productos        | **Por completar** |
-| PUT    | /productos/:id    | **Por completar** |
-| DELETE | /productos/:id    | **Por completar** |
+| POST   | /productos        | Implementado  |
+| PUT    | /productos/:id    | Implementado  |
+| DELETE | /productos/:id    | Implementado  |
 
-Lee el documento de la práctica para ver los requisitos de cada método.
+## Ejemplos
+
+- `POST /productos` con `{ "nombre", "descripcion", "precio" }` → 201 y el producto creado (400 si falta un campo o el precio no es mayor que cero).
+- `PUT /productos/:id` → 200 con el producto actualizado (404 si no existe, 400 si faltan campos).
+- `DELETE /productos/:id` → 200 con `{ "mensaje": "Producto eliminado", "producto": {...} }` (404 si no existe).
+
+Todas las respuestas son JSON. Los datos se guardan en memoria y se reinician al reiniciar el servidor.
