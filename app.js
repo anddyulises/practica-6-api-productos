@@ -154,6 +154,11 @@ app.delete('/productos/:id', (req, res) => {
 })
 
 
+// Ruta no encontrada: cualquier ruta que no exista responde en JSON con 404
+app.use((req, res) => {
+    res.status(404).json({ mensaje: 'Ruta no encontrada' })
+})
+
 // Manejo de errores: si el cuerpo trae un JSON mal escrito,
 // responder en JSON con código 400 en lugar de una página de error
 app.use((err, req, res, next) => {
